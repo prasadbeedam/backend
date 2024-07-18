@@ -63,7 +63,7 @@ pipeline {
         stage('Deploy'){
             steps{
                 script{
-                    dnf params = [
+                    def params = [
                        string(name: 'appVersion', value: "${appVersion}")
                     ]
                     build job: 'Deploy_pipeline', parameters: params, wait: false   
