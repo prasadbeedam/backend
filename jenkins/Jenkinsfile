@@ -66,7 +66,7 @@ pipeline {
                     dnf params = [
                        string(name: 'appVersion', value: "${appVersion}")
                     ]
-                    Build job: 'Deploy_pipeline', parameters: params, wait: false   
+                    build job: 'Deploy_pipeline', parameters: params, wait: false   
                 }
             }
         }
