@@ -60,6 +60,16 @@ pipeline {
                 }
             }
         }
+        stage('Deploy'){
+            steps{
+                dnf params = [
+                    string(name: 'appVersion', value: "${appVersion}")
+                ]
+                script{
+                    Build job: 'Deploy_pipeline', parameters: params, wait: false   
+                }
+            }
+        }
     }
     post { 
         always { 
